@@ -170,26 +170,30 @@ public class Screen extends org.unbiquitous.uImpala.engine.io.Screen {
       return;
     
     // mouse
-    while (Mouse.next()) {
-      int butt = Mouse.getEventButton();
-      MouseEvent event;
-      if (butt == -1)
-        event = new MouseEvent(MouseSource.EVENT_MOUSE_MOTION, Mouse.getEventX(), height - 1 - Mouse.getEventY(), butt);
-      else if (Mouse.getEventButtonState())
-        event = new MouseEvent(MouseSource.EVENT_BUTTON_DOWN, Mouse.getEventX(), height - 1 - Mouse.getEventY(), butt);
-      else
-        event = new MouseEvent(MouseSource.EVENT_BUTTON_UP, Mouse.getEventX(), height - 1 - Mouse.getEventY(), butt);
-      mouse.add(event);
+    if (mouse != null) {
+      while (Mouse.next()) {
+        int butt = Mouse.getEventButton();
+        MouseEvent event;
+        if (butt == -1)
+          event = new MouseEvent(MouseSource.EVENT_MOUSE_MOTION, Mouse.getEventX(), height - 1 - Mouse.getEventY(), butt);
+        else if (Mouse.getEventButtonState())
+          event = new MouseEvent(MouseSource.EVENT_BUTTON_DOWN, Mouse.getEventX(), height - 1 - Mouse.getEventY(), butt);
+        else
+          event = new MouseEvent(MouseSource.EVENT_BUTTON_UP, Mouse.getEventX(), height - 1 - Mouse.getEventY(), butt);
+        mouse.add(event);
+      }
     }
     
     // keyboard
-    while (Keyboard.next()) {
-      KeyboardEvent event;
-      if (Keyboard.getEventKeyState())
-        event = new KeyboardEvent(KeyboardSource.EVENT_KEY_DOWN, Keyboard.getEventKey(), Keyboard.getEventCharacter());
-      else
-        event = new KeyboardEvent(KeyboardSource.EVENT_KEY_UP, Keyboard.getEventKey(), Keyboard.getEventCharacter());
-      keyboard.add(event);
+    if (keyboard != null) {
+      while (Keyboard.next()) {
+        KeyboardEvent event;
+        if (Keyboard.getEventKeyState())
+          event = new KeyboardEvent(KeyboardSource.EVENT_KEY_DOWN, Keyboard.getEventKey(), Keyboard.getEventCharacter());
+        else
+          event = new KeyboardEvent(KeyboardSource.EVENT_KEY_UP, Keyboard.getEventKey(), Keyboard.getEventCharacter());
+        keyboard.add(event);
+      }
     }
     
     // screen
