@@ -1,5 +1,7 @@
 package org.unbiquitous.uImpala.jse.impl.io;
 
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.util.Arrays;
 
 import org.lwjgl.LWJGLException;
@@ -32,6 +34,14 @@ public class Screen extends org.unbiquitous.uImpala.engine.io.Screen {
   }
   
   private static Screen screen = null;
+  
+	public void open() {
+		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		int width = gd.getDisplayMode().getWidth();
+		int height = gd.getDisplayMode().getHeight();
+		this.open("", width, height, true, null);
+		
+	}
   
   public void open(String t, int w, int h, boolean f, String i, boolean gl) {
     open = true;
