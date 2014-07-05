@@ -5,11 +5,19 @@ import java.awt.Point;
 
 public class Shape {
 	Point center;
+	Color awtPaint;
+	org.newdawn.slick.Color paint;
+	
 	public Shape(Point center, Color paint) {
 		center(center);
-		this.paint = fromColor(paint);
+		color(paint);
 	}
-	org.newdawn.slick.Color paint;
+	
+	public Color color(){ return awtPaint;}
+	public void color(Color color){ 
+		awtPaint = color;
+		this.paint = fromColor(color);
+	}
 	
 	org.newdawn.slick.Color fromColor(Color paint) {
 		return new org.newdawn.slick.Color(paint.getRed(), paint.getGreen(), paint.getBlue(), paint.getAlpha());

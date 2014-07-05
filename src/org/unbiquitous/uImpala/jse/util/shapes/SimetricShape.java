@@ -45,4 +45,5 @@ public class SimetricShape extends Shape {
 	}
 	
 	public float radius(){	return radius;	}
+	public void radius(int radius){	this.radius = radius ;	}
 }
