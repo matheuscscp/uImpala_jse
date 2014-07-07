@@ -8,7 +8,7 @@ import org.unbiquitous.uImpala.jse.impl.time.Time;
 
 public class Game extends org.unbiquitous.uImpala.engine.core.Game {
   public static void run(GameSettings settings) {
-    run(Game.class.getName(), settings);
+    run(Game.class, settings);
   }
   
   protected void initImpl() {
