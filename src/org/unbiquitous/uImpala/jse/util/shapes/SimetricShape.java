@@ -1,9 +1,9 @@
 package org.unbiquitous.uImpala.jse.util.shapes;
 
 import java.awt.Color;
-import java.awt.Point;
 
 import org.lwjgl.opengl.GL11;
+import org.unbiquitous.uImpala.util.math.Point;
 
 public class SimetricShape extends Shape {
 	float radius;

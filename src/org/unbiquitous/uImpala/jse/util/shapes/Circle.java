@@ -1,7 +1,8 @@
 package org.unbiquitous.uImpala.jse.util.shapes;
 
 import java.awt.Color;
-import java.awt.Point;
+
+import org.unbiquitous.uImpala.util.math.Point;
 
 public class Circle extends SimetricShape {
 	float radius;
