@@ -42,33 +42,25 @@
 		<dependency>
 			<groupId>slick-util</groupId>
 			<artifactId>slick-util</artifactId>
-			<scope>system</scope>
 			<version>237</version>
-			<systemPath>${basedir}/lib/slick-util.jar</systemPath>
 		</dependency>
 
 		<dependency>
-			<groupId>jorbis</groupId>
+			<groupId>org.jcraft</groupId>
 			<artifactId>jorbis</artifactId>
-			<scope>system</scope>
-			<version>0.0.15</version>
-			<systemPath>${basedir}/lib/jorbis-0.0.15.jar</systemPath>
+			<version>0.0.17</version>
 		</dependency>
 
 		<dependency>
 			<groupId>jogg</groupId>
 			<artifactId>jogg</artifactId>
-			<scope>system</scope>
 			<version>0.0.7</version>
-			<systemPath>${basedir}/lib/jogg-0.0.7.jar</systemPath>
 		</dependency>
 
 		<dependency>
 			<groupId>ibxm</groupId>
 			<artifactId>ibxm</artifactId>
-			<scope>system</scope>
 			<version>1.0</version>
-			<systemPath>${basedir}/lib/ibxm.jar</systemPath>
 		</dependency>
 
 	</dependencies>
