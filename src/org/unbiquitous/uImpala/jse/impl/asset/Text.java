@@ -29,7 +29,7 @@ public class Text extends org.unbiquitous.uImpala.engine.asset.Text {
   }
   
   public void render(Screen screen, float x, float y, Corner corner, float opacity, float angle, float scaleX, float scaleY, Color color) {
-    color.a = opacity;
+    color.alpha = opacity;
     
     // check corner
     if (corner == null)
@@ -66,7 +66,7 @@ public class Text extends org.unbiquitous.uImpala.engine.asset.Text {
     GL11.glScalef(scaleX, scaleY, 0.0f);
     GL11.glTranslatef(-halfWidth, -halfHeight, 0.0f);
     
-    ttfFont.drawString(0.0f, 0.0f, text, new org.newdawn.slick.Color(color.r, color.g, color.b, color.a));
+    ttfFont.drawString(0.0f, 0.0f, text, new org.newdawn.slick.Color(color.red, color.green, color.blue, color.alpha));
   }
   
   public void options(Integer style, Float size, Boolean antiAlias) {

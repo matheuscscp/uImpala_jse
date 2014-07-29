@@ -1,21 +1,17 @@
 package org.unbiquitous.uImpala.jse.util.shapes;
 
-import java.awt.Color;
-
 import org.lwjgl.opengl.GL11;
+import org.unbiquitous.uImpala.util.Color;
 import org.unbiquitous.uImpala.util.math.Point;
 
-public class Rectangle extends Shape {
-	private final float width;
-	private final float height;
-	private float angleInDegrees = 0;
+public class Rectangle extends org.unbiquitous.uImpala.engine.asset.Rectangle {
 	
 	public Rectangle(Point center, Color paint, float width, float height) {
-		super(center, paint);
-		this.width = width;
-		this.height = height;
+		super(center, paint, width, height);
 	}
 
+	private float angleInDegrees = 0;
+	
 	public void rotate(float angleInDegrees) {
 		this.angleInDegrees = angleInDegrees;
 	}
@@ -34,6 +30,14 @@ public class Rectangle extends Shape {
 		GL11.glEnd();
 	}
 	
-	public float width() {		return width;	}
-	public float height() {	return height;	}
+	org.newdawn.slick.Color paint;
+	
+	public void color(Color color){ 
+		super.color(color);
+		this.paint = fromColor(color);
+	}
+	
+	org.newdawn.slick.Color fromColor(Color paint) {
+		return new org.newdawn.slick.Color(paint.getRed(), paint.getGreen(), paint.getBlue(), paint.getAlpha());
+	}
 }

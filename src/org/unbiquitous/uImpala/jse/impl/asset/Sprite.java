@@ -27,7 +27,7 @@ public class Sprite extends org.unbiquitous.uImpala.engine.asset.Sprite {
   public void render(Screen screen, float x, float y, Corner corner, float opacity, float angle, float scaleX, float scaleY, Color color) {
     texture.bind();
     
-    GL11.glColor4f(color.r, color.g, color.b, opacity);
+    GL11.glColor4f(color.red, color.green, color.blue, opacity);
     
     // check corner
     if (corner == null)

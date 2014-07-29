@@ -1,19 +1,25 @@
 package org.unbiquitous.uImpala.jse.util.shapes;
 
-import java.awt.Color;
-
 import org.lwjgl.opengl.GL11;
+import org.unbiquitous.uImpala.util.Color;
 import org.unbiquitous.uImpala.util.math.Point;
 
-public class SimetricShape extends Shape {
-	float radius;
-	int sides;
+public class SimetricShape extends org.unbiquitous.uImpala.engine.asset.SimetricShape {
 	private float angleInDegrees;
 	
 	public SimetricShape(Point center, Color paint, float radius, int sides) {
-		super(center, paint);
-		this.radius = radius;
-		this.sides = sides;
+		super(center, paint, radius, sides);
+	}
+	
+	org.newdawn.slick.Color paint;
+	
+	public void color(Color color){ 
+		super.color(color);
+		this.paint = fromColor(color);
+	}
+	
+	org.newdawn.slick.Color fromColor(Color paint) {
+		return new org.newdawn.slick.Color(paint.getRed(), paint.getGreen(), paint.getBlue(), paint.getAlpha());
 	}
 	
 	public void render(){
@@ -43,7 +49,4 @@ public class SimetricShape extends Shape {
 	public void rotate(float angleInDegrees) {
 		this.angleInDegrees = angleInDegrees;
 	}
-	
-	public float radius(){	return radius;	}
-	public void radius(int radius){	this.radius = radius ;	}
 }
