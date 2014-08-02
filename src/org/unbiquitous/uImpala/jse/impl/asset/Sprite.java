@@ -26,6 +26,7 @@ public class Sprite extends org.unbiquitous.uImpala.engine.asset.Sprite {
   
   public void render(Screen screen, float x, float y, Corner corner, float opacity, float angle, float scaleX, float scaleY, Color color) {
     texture.bind();
+    GL11.glBindTexture(GL11.GL_TEXTURE_2D, texture.getTextureID());
     
     GL11.glColor4f(color.red, color.green, color.blue, opacity);
     

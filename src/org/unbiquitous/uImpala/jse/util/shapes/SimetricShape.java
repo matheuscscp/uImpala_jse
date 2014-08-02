@@ -35,7 +35,7 @@ public class SimetricShape extends org.unbiquitous.uImpala.engine.asset.Simetric
 
 	private void renderPoints() {
 		for (double i = 0; i < 360; i+=((float)360)/sides) {
-			plotVertex(center, ((float)radius)/2, i+45);
+			plotVertex(center, radius, i+45);
 		}
 	}
 
