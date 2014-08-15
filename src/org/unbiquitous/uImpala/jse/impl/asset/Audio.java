@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.newdawn.slick.openal.OggInputStream;
 import org.newdawn.slick.util.ResourceLoader;
-import org.unbiquitous.uImpala.engine.core.GameComponents;
+import org.unbiquitous.uImpala.engine.core.GameSingletons;
 import org.unbiquitous.uImpala.engine.core.GameSettings;
 import org.unbiquitous.uImpala.engine.io.Speaker;
 
@@ -20,7 +20,7 @@ public class Audio implements org.unbiquitous.uImpala.engine.asset.Audio {
   protected OggInputStream stream() {
     try {
       return new OggInputStream(ResourceLoader.getResourceAsStream(
-        GameComponents.get(GameSettings.class).get("root_path") + "/" + path
+        GameSingletons.get(GameSettings.class).get("root_path") + "/" + path
       ));
     } catch (IOException e) {
       throw new Error(e);

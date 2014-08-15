@@ -10,7 +10,7 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
-import org.unbiquitous.uImpala.engine.core.GameComponents;
+import org.unbiquitous.uImpala.engine.core.GameSingletons;
 import org.unbiquitous.uImpala.engine.io.KeyboardEvent;
 import org.unbiquitous.uImpala.engine.io.KeyboardManager;
 import org.unbiquitous.uImpala.engine.io.KeyboardSource;
@@ -51,8 +51,8 @@ public class Screen extends org.unbiquitous.uImpala.engine.io.Screen {
       setIcon(i);
       Display.create();
       Display.setVSyncEnabled(true);
-      mouse = GameComponents.get(MouseManager.class) != null ? new MouseSource(Mouse.getButtonCount()) : null;
-      keyboard = GameComponents.get(KeyboardManager.class) != null ? new KeyboardSource(Keyboard.KEYBOARD_SIZE, null) : null;
+      mouse = GameSingletons.get(MouseManager.class) != null ? new MouseSource(Mouse.getButtonCount()) : null;
+      keyboard = GameSingletons.get(KeyboardManager.class) != null ? new KeyboardSource(Keyboard.KEYBOARD_SIZE, null) : null;
       addMouseKeyboard();
       if (gl)
         initLegacyOpenGL();
@@ -238,16 +238,16 @@ public class Screen extends org.unbiquitous.uImpala.engine.io.Screen {
   
   private void addMouseKeyboard() {
     if (mouse != null)
-      GameComponents.get(MouseManager.class).add(mouse);
+      GameSingletons.get(MouseManager.class).add(mouse);
     if (keyboard != null)
-      GameComponents.get(KeyboardManager.class).add(keyboard);
+      GameSingletons.get(KeyboardManager.class).add(keyboard);
   }
   
   private void removeMouseKeyboard() {
     if (mouse != null)
-      GameComponents.get(MouseManager.class).remove(mouse);
+      GameSingletons.get(MouseManager.class).remove(mouse);
     if (keyboard != null)
-      GameComponents.get(KeyboardManager.class).remove(keyboard);
+      GameSingletons.get(KeyboardManager.class).remove(keyboard);
   }
   
   protected MouseSource mouse = null;
